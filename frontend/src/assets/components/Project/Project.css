@@ -1,0 +1,161 @@
+.project-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "data trajectory trajectory logs"
+    "data fuel       radiation   logs";
+  gap: 10px;
+  margin:0 1%;
+}
+
+.datadiv {
+  grid-area: data;
+  width:400px;
+  height: 500px;
+ border: 1px solid white;
+}
+
+.trajectorydiv {
+  grid-area: trajectory;
+  height: 500px;
+   border: 1px solid #cdb6fa;
+}
+
+.fueldiv {
+  grid-area: fuel;
+  display: none;
+ border: 1px solid aqua;
+}
+
+.radiationdiv {
+  grid-area: radiation;
+  display: none;
+ border: 1px solid azure;
+}
+
+.humanlogsdiv {
+  grid-area: logs;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap:10px;
+   overflow-y: scroll;
+}
+
+.log-entry {
+margin:3% 5% 3% 3%;
+  border-radius: 5px;
+  border-left: 2.5px solid #9560ff;
+  padding: 5px 8px;
+  display: flex;          
+  align-items: center;
+  background: rgba(149, 96, 255, 0.1); 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+cursor: pointer;
+}
+
+.log-entry:hover{
+background: rgba(149, 96, 255, 0.2); 
+
+}
+
+.log-time {
+  color: #9560ff;
+  font-weight: bold;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.log-message {
+  flex: 1;               
+}
+
+h4{
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+
+
+/* Data css */
+
+
+.data-entry {
+  background: #1e1e2e;         /* dark card background */
+  color: #e0e0e0;              /* soft text color */
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  font-family: "Segoe UI", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.data-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.8);
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.data-row:last-child {
+  border-bottom: none;
+}
+
+.data-label {
+  font-weight: 600;
+  color: #cdb6fa;             
+}
+
+.data-value {
+  font-weight: 400;
+  color: #f0f0f0;
+}
+
+
+.data-value:contains("ALERT"),
+.data-value:contains("CRITICAL") {
+  color: #ff4d4d;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(255,77,77,0.8);
+}
+
+
+.refreshbtn{
+  background: #575454;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 14px 32px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+}
+.refreshbtn:hover{
+  background: #363131;
+}
+
+.refreshbtn:focus svg {
+  animation: spin 0.5s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
